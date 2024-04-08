@@ -1,13 +1,13 @@
 'use client'
 import { Button, Input } from "@/components/ui"
-import { usePersonStore } from "@/store";
+import { useSearchStore } from "@/store";
 import { useRouter } from 'next/navigation'
 import { ChangeEvent } from "react";
 import { MdAddToPhotos } from "react-icons/md";
 
 export const SearchGame = () => {
-  const searchGame = usePersonStore( state=> state.gameSearch)
-  const setSearchGame = usePersonStore( state=> state.setSearchGame)
+  const searchGame = useSearchStore( state=> state.gameSearch)
+  const setSearchGame = useSearchStore( state=> state.setSearchGame)
   const router = useRouter()
 
   const onChangeSearchGame = (e:ChangeEvent<HTMLInputElement>) => {

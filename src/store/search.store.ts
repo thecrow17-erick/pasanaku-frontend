@@ -1,5 +1,5 @@
 import { create ,StateCreator} from "zustand"
-import { createJSONStorage, devtools , persist, StateStorage} from "zustand/middleware"
+import {  devtools , persist} from "zustand/middleware"
 interface GameState {
   gameSearch: string
 }
@@ -15,7 +15,7 @@ const storeApi :StateCreator<GameState & Actions> = (set)=>({
   clearSearchGame:()=> set(() => ({gameSearch: ''}))
 })
 
-export const usePersonStore = create<GameState & Actions>()(
+export const useSearchStore = create<GameState & Actions>()(
   devtools(
     persist(
       storeApi
