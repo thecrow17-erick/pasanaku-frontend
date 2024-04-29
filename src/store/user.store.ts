@@ -3,6 +3,7 @@ import { devtools , persist} from "zustand/middleware"
 interface UserState {
   name:       string;
   id:         string;
+  email:      string;
   path_image: string;
 }
 interface authState {
@@ -19,6 +20,7 @@ const storeApi :StateCreator<UserState & authState & Actions> = (set)=>({
   logged: false,
   id: '',
   path_image: '',
+  email: "",
   setUser: (value: UserState) => set(state => ({...value,logged: true})),
   clearSearchGame:()=> set(() => ({id: '', path_image:'',logged:false,name:''}))
 })

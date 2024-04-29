@@ -6,14 +6,14 @@ import Link from "next/link"
 
 import { Button, Input } from "@/components/ui"
 import { signInSchema } from "../../validations";
-import { ISignIn } from "../../interface";
+import { ISignIn,IErrorLogin } from "../../interface";
 import { useAuthPlayer } from "../../hooks";
 import { useState } from "react";
 import { useUserStore } from "@/store";
 
 export const AuthSignIn = () => {
 
-  const [err, setErr] = useState('')
+  const [err, setErr] = useState<string[]>([])
   const setUser =  useUserStore(state => state.setUser)
   const {
     register,
@@ -33,16 +33,20 @@ export const AuthSignIn = () => {
     authPlayer.mutate(data,{
       onSuccess(data) {
         console.log(data);
-        if(data?.status === 200){
+        if(data?.meta.code === 200){
           setUser({
-            id: data.user.id,
-            name: data.user.name,
-            path_image: data.user.path_image,
+            id: data.data.id,
+            name: data.data.name,
+            path_image: data.data.path_image,
+            email: data.data.email,
           })
-          return router.push(`/player/${data.user.id}/games`)
+          return router.push(`/player/${data.data.id}/games`)
         }
-        setErr("Ingrese sus datos correctos")
-      }
+      },
+      onError(error) {
+        const err : IErrorLogin = error.response.data;
+        setErr(err.errors.details.map(e => (e.msg)))
+      },
     })
 
   };
@@ -54,7 +58,7 @@ export const AuthSignIn = () => {
       onSubmit={handleSubmit(onSubmit)}
       className="lg:w-2/4 py-10 md:w-3/4 w-full">
         {
-            err && (
+            err.length > 0 && (
               <p
               className="text-red-700 font-medium text-sm"  
               >{err}</p>

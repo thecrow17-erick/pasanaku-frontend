@@ -4,7 +4,6 @@ import React, { FC } from 'react'
 import { FaEdit } from 'react-icons/fa'
 import { MdDelete } from 'react-icons/md'
 
-
 interface Props {
   correo:   string;
   telefono: string;

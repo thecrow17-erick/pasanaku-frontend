@@ -5,8 +5,8 @@ import { useUserStore } from "@/store";
 import { FaRegCreditCard } from "react-icons/fa";
 import { IoMdSettings } from "react-icons/io";
 import { IoLogOut } from "react-icons/io5";
-import Image,{ImageLoader} from 'next/image';
-import { pathImageUrl } from "../helper";
+// import Image,{ImageLoader} from 'next/image';
+// import { pathImageUrl } from "../helper";
 export const PerfilMenu = () => {
   const name = useUserStore(state => state.name)
   const idPlayer=  useUserStore(state => state.id)
@@ -21,14 +21,14 @@ export const PerfilMenu = () => {
             <div className="mr-5">
               {name}  
             </div>     
-            <div className="rounded-full w-8 h-8 flex items-center justify-center bg-white">
+            {/* <div className="rounded-full w-8 h-8 flex items-center justify-center bg-white">
               <Image
                 src={pathImageUrl(idPlayer,pathImage)}
                 width={25}
                 height={25}
                 alt={pathImage}
               />
-            </div>       
+            </div>        */}
           </div>
         </MenubarTrigger>
         <MenubarContent>

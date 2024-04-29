@@ -1,6 +1,7 @@
 import "./globals.css";
 import { Inter as FontSans } from "next/font/google"
 import { cn } from "@/lib/utils"
+import { ProviderQuery } from "@/lib/ProviderQuery";
 
 const fontSans = FontSans({
   subsets: ["latin"],
@@ -10,7 +11,7 @@ export default function RootLayout({ children }:Readonly<{
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" suppressHydrationWarning>
+    <html lang="en">
       <head />
       <body
         className={cn(
@@ -18,7 +19,9 @@ export default function RootLayout({ children }:Readonly<{
           fontSans.variable
         )}
       >
-        {children}
+        <ProviderQuery>
+          {children}
+        </ProviderQuery>
       </body>
     </html>
   )

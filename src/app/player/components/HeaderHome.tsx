@@ -5,14 +5,16 @@ import LogoPasanaku from '@/assets/logo.png';
 import BaderaBoliviana from '@/assets/Bandera_Bolivia.png'
 import { PerfilMenu } from './PerfilMenu';
 import { useRouter } from 'next/navigation';
+import { useUserStore } from '@/store';
 export const HeaderHome = () => {
+  const userId = useUserStore(state => state.id);
   const router = useRouter()
   return (
     <header className="bg-custom-blue-900 w-full p-5 flex lg:flex-row flex-col">
       <div>
         <div className='flex flex-col w-auto whitespace-break-spaces'>
             <div className='flex flex-row items-center cursor-pointer'
-              onClick={()=>router.push('/player/1234/games')}
+              onClick={()=>router.push(`/player/${userId}/games`)}
             >
               <Image
                 src={LogoPasanaku}

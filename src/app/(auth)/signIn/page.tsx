@@ -1,11 +1,8 @@
 'use client'
-import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { AuthSignIn } from "../components";
 
 export default function signInPage(){
-  const queryClient = new QueryClient()
   return (
-    <QueryClientProvider client={queryClient}>
       <div className="bg-custom-blue-300 w-full h-screen">
         <div className="w-full py-10 flex justify-center">
           <div className="bg-white rounded-sm lg:w-2/3 px-5 xl:w-2/4 py-5 lg:py-0 w-full mx-5 bg-opacity-40">
@@ -21,6 +18,5 @@ export default function signInPage(){
           </div>
         </div>
       </div>
-    </QueryClientProvider>
   )
 }

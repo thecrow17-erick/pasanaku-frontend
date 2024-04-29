@@ -2,6 +2,7 @@ import { Inter as FontSans } from "next/font/google"
 import { cn } from "@/lib/utils"
 import type { Metadata } from "next";
 import { HeaderHome } from "../components";
+import { ProviderQuery } from "@/lib/ProviderQuery";
 
 
 const fontSans = FontSans({
@@ -27,8 +28,8 @@ export default function RootLayout({
           fontSans.variable
         )}
         >
-          <HeaderHome/>
-          {children}
+            <HeaderHome/>
+            {children}
         </body>
     </html>
   );

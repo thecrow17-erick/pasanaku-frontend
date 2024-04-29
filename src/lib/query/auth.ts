@@ -1,15 +1,11 @@
-import { ISignIn, ISignInResponse } from "@/app/(auth)/interface";
+import { IResLogin, ISignIn,IErrorLogin } from "@/app/(auth)/interface";
 import {pasanakuAxios} from '@/api'
 
-export const authPlayerSignIn = async(body: ISignIn):Promise<ISignInResponse | undefined> =>{
+export const authPlayerSignIn = async(body: ISignIn):Promise<IResLogin> =>{
   try {
-    const {data,status} = await pasanakuAxios.post<ISignInResponse>("player/auth",body);
-
-    return {
-      ...data,
-      status
-    }
-  } catch (error) {
+    const {data} = await pasanakuAxios.post<IResLogin>("auth/login",body);
+    return data;
+  } catch (error)  {
     throw error;
   }
 }

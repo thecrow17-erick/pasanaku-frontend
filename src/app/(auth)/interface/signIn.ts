@@ -1,15 +1,31 @@
+import {Meta} from '@/api/interface';
+
+export interface IResLogin {
+  meta: Meta;
+  data: Data;
+}
 export interface ISignIn{
-  email:          string;
-  password:       string;   
+  email:        string;
+  password:     string;
+
 }
 
-export interface ISignInResponse{
-  message:    string;
-  user:       UserAuth;
-  status:     number;
+export interface IErrorLogin{
+  meta: Meta;
+  errors: details;
+}
+export interface details{
+  details: detail[];
+}
+export interface detail{
+  type:       string;
+  value:      string;
+  msg:        string;
+  location:   string
 }
 
-export interface UserAuth {
+
+export interface Data {
   id:         string;
   email:      string;
   name:       string;
@@ -19,6 +35,7 @@ export interface UserAuth {
   address:    string;
   password:   string;
   path_image: string;
-  createdAt:  string;
-  updatedAt:  string;
+  token_FCM:  string;
+  createdAt:  Date;
+  updatedAt:  Date;
 }

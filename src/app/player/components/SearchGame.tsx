@@ -1,12 +1,13 @@
 'use client'
 import { Button, Input } from "@/components/ui"
-import { useSearchStore } from "@/store";
+import { useSearchStore, useUserStore } from "@/store";
 import { useRouter } from 'next/navigation'
 import { ChangeEvent } from "react";
 import { MdAddToPhotos } from "react-icons/md";
 
 export const SearchGame = () => {
   const searchGame = useSearchStore( state=> state.gameSearch)
+  const userId = useUserStore( state=> state.id )
   const setSearchGame = useSearchStore( state=> state.setSearchGame)
   const router = useRouter()
 
@@ -28,7 +29,7 @@ export const SearchGame = () => {
           placeholder="Buscar nombre de la partida"
           />
           <Button className="bg-transparent hover:bg-inherit"
-            onClick={()=>router.push("/player/1231/create-game")}
+            onClick={()=>router.push(`/player/${userId}/create-game`)}
           >
             <MdAddToPhotos
               size={30}
