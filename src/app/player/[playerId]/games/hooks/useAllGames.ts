@@ -8,7 +8,8 @@ export const useAllGames = () => {
 
   const mutationAuth = useQuery({
     queryKey: ["games",userId],
-    queryFn: ()=>allGames(userId)
+    queryFn: ()=>allGames(userId),
+    staleTime: 60 * 60 * 3600
   })
 
   return {
