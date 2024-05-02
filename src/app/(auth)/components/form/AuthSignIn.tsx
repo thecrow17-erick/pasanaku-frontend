@@ -45,8 +45,8 @@ export const AuthSignIn = () => {
         }
       },
       onError(error) {
-        const err : IErrorLogin = error.response.data;
-        setErr(err.errors.details.map(e => (e.msg)))
+        
+        setErr([...err,"Error 404"])
       },
     })
 
