@@ -68,6 +68,10 @@ export const GameIdPage = () => {
             name="Periodos"
             value={game.data?.data.period.name!}
           />
+          <InfoGame
+            name="Creado"
+            value={game.data?.data.period.createdAt.toString()!.replace("T"," ")!}
+          />
           <Button
             onClick={()=>router.push(`/player/${params.playerId}/games/${params.gameId}/invited-friend`)}
             className="bg-custom-blue-900 hover:bg-custom-blue-500 block w-auto text-white p-2"

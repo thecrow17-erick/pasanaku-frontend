@@ -3,6 +3,7 @@ import { cn } from "@/lib/utils"
 import type { Metadata } from "next";
 import { HeaderHome } from "../components";
 import { ProviderQuery } from "@/lib/ProviderQuery";
+import { ProtectedRoute } from "@/components/ProtectedRoutePlayer";
 
 
 const fontSans = FontSans({
@@ -29,7 +30,9 @@ export default function RootLayout({
         )}
         >
             <HeaderHome/>
-            {children}
+            <ProtectedRoute>
+              {children}
+            </ProtectedRoute>
         </body>
     </html>
   );

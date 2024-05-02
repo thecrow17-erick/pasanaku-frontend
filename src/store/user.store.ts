@@ -12,7 +12,7 @@ interface authState {
 
 interface Actions{
   setUser: (value: UserState)=>void
-  clearSearchGame: ()=>void
+  clearUser: ()=>void
 }
 
 const storeApi :StateCreator<UserState & authState & Actions> = (set)=>({
@@ -22,7 +22,7 @@ const storeApi :StateCreator<UserState & authState & Actions> = (set)=>({
   path_image: '',
   email: "",
   setUser: (value: UserState) => set(state => ({...value,logged: true})),
-  clearSearchGame:()=> set(() => ({id: '', path_image:'',logged:false,name:''}))
+  clearUser:()=> set(() => ({id: '', path_image:'',logged:false,name:''}))
 })
 
 export const useUserStore = create<UserState & authState & Actions>()(

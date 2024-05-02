@@ -9,8 +9,7 @@ import { IoLogOut } from "react-icons/io5";
 // import { pathImageUrl } from "../helper";
 export const PerfilMenu = () => {
   const name = useUserStore(state => state.name)
-  const idPlayer=  useUserStore(state => state.id)
-  const pathImage = useUserStore(state => state.path_image);
+  const clearUser =  useUserStore(state => state.clearUser)
 
 
   return (
@@ -52,7 +51,11 @@ export const PerfilMenu = () => {
             </p>
           </MenubarItem>
           <MenubarSeparator />
-          <MenubarItem>
+          <MenubarItem
+            onClick={
+              ()=> clearUser()
+            }
+          >
             <IoLogOut
                 size={20}
                 className="mr-5"

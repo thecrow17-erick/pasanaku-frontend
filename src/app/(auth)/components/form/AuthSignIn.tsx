@@ -40,7 +40,8 @@ export const AuthSignIn = () => {
             path_image: data.data.path_image,
             email: data.data.email,
           })
-          return router.push(`/player/${data.data.id}/games`)
+          return router.replace(`/player/${data.data.id}/games`)
+
         }
       },
       onError(error) {
@@ -106,11 +107,6 @@ export const AuthSignIn = () => {
           >
             No tienes una cuenta? create una ahora mismo!
           </Link>
-          <Link href={"/auth/signUp"}
-            className="text-sm underline text-custom-blue-900 font-semibold"
-          >
-            Olvidaste tu password? recuperala!
-          </Link>
         </div>
 
         <Button
@@ -119,7 +115,6 @@ export const AuthSignIn = () => {
           disabled={authPlayer.isPending}
         >
           Inicie sesion
-
         </Button>
       </form>
     </div>

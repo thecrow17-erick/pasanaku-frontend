@@ -12,7 +12,7 @@ export default async function create(){
   }))
 
   return (
-    <div className="bg-custom-blue-300 w-full xl:h-screen h-full">
+    <div className="bg-custom-blue-300 w-full lg:h-screen h-full">
       <div className="w-full py-10 flex justify-center">
         <CreateGame periods={dataPeriod}/>
       </div>

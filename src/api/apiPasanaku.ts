@@ -1,5 +1,5 @@
 import axios from 'axios'
 
 export const pasanakuAxios = axios.create({
-  baseURL: "http://localhost:3001/api/"
+  baseURL: "http://www.ficct.uagrm.edu.bo:3001/api/"
 })

@@ -163,6 +163,7 @@ export const CreateGame = ({periods}: props) => {
                 {...fileValue} onDelete={removeFile} preview />
                 ) : (
                   <FileInputButton 
+                  type='button'
                   className="md:w-1/3 w-full mb-5"
                   value={fileValue ? [fileValue] : []} 
                   accept="image/*"
